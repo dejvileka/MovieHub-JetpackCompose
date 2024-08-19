@@ -5,14 +5,15 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.parcelize)
+
 }
 
 android {
-    namespace = "se.meds.android"
+    namespace = "com.dejvidLeka.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "se.meds.android"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -35,6 +36,7 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
+
     buildFeatures {
         buildConfig = true
         compose = true
@@ -64,12 +66,14 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.auth)
-    ksp(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.runtime)
     implementation(libs.androidx.room.runtime)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.okhttp.dnsoverhttps)
     implementation(libs.glide)
     implementation(libs.shimmer)
-
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.kotlinx.coroutines.test)
 }
+
