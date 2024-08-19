@@ -62,4 +62,14 @@ dependencies {
     implementation(libs.coil.compose)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.ui.tooling)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.auth)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp.dnsoverhttps)
+    implementation(libs.glide)
+    implementation(libs.shimmer)
+
 }
