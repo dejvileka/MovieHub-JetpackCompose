@@ -42,7 +42,9 @@ android {
 }
 
 dependencies {
-
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit.v115)
+    androidTestImplementation(libs.androidx.espresso.core.v351)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -54,6 +56,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.hilt.android)
+    testImplementation(libs.testng)
     ksp(libs.hilt.compiler)
     implementation(platform(libs.coil.bom))
     implementation(libs.coil.compose)
