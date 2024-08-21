@@ -17,9 +17,8 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-
-interface TMDBAPITService {
-
+interface TMDBApiService {
+    @GET("/3/discover/{category}")
     suspend fun getMoviesByGenre(
         @Query("api_key") apiKey: String,
         @Query("without_keywords") withoutKeywords: String,
@@ -29,8 +28,7 @@ interface TMDBAPITService {
 
     @GET("movie/top_rated")
     suspend fun getTopRatedMovies(
-        @Query("api_key") apiKey: String,
-        @Query("page") page: Int
+        @Query("page") page: Int = 1
     ): Response<TopRatedMovies>
 
     @GET("trending/movie/day")

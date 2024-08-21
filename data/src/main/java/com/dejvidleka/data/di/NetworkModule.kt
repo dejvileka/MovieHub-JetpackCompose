@@ -1,6 +1,6 @@
 package com.dejvidleka.data.di
 
-import com.dejvidleka.data.remote.TMDBAPITService
+import com.dejvidleka.data.remote.TMDBApiService
 import com.dejvidleka.data.repositories.APIKeyInterceptor
 import dagger.Module
 import dagger.Provides
@@ -47,7 +47,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideMovieServices(retrofit: Retrofit): TMDBAPITService {
-        return retrofit.create(TMDBAPITService::class.java)
+    fun provideMovieServices(retrofit: Retrofit): TMDBApiService {
+        return retrofit.create(TMDBApiService::class.java)
     }
 }

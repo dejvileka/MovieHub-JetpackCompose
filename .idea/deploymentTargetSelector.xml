@@ -8,19 +8,16 @@
       <SelectionState runConfigName="app.data">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="getPopularMovies returns successful response()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="getPopularMovies_returns_successful_response()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="TmdbApiServiceTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="get_top_rated_movies_returns_successful_response()">
+      <SelectionState runConfigName="get_trending_movies_returns_successful_response1()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="get_movie_cast_bring_successful_response()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="getMoviesByGenre_handles_error_response()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
