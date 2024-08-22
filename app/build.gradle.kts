@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.parcelize)
-
 }
 
 android {
@@ -45,6 +44,7 @@ android {
 
 dependencies {
     implementation(project(":data"))
+    implementation(project(":core"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit.v115)
     androidTestImplementation(libs.androidx.espresso.core.v351)
@@ -75,6 +75,10 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.shimmer)
     testImplementation(libs.mockito.core)
+    implementation(libs.androidx.hilt.navigation.compose)
     testImplementation(libs.kotlinx.coroutines.test)
+    implementation(libs.androidx.runtime)
+
 }
+
 

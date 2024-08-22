@@ -5,6 +5,7 @@ import com.dejvidleka.data.remote.models.GenreResponse
 import com.dejvidleka.data.remote.models.MovieByGenre
 import com.dejvidleka.data.remote.models.MovieCast
 import com.dejvidleka.data.remote.models.MovieDetails
+import com.dejvidleka.data.remote.models.MovieResult
 import com.dejvidleka.data.remote.models.ProvidersName
 import com.dejvidleka.data.remote.models.ProvidersResponse
 import com.dejvidleka.data.remote.models.SearchResultMovies
@@ -18,7 +19,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TMDBApiService {
-    @GET("/3/discover/{category}")
+    @GET("discover/{category}")
     suspend fun getMoviesByGenre(
         @Query("api_key") apiKey: String,
         @Query("without_keywords") withoutKeywords: String,
@@ -29,7 +30,7 @@ interface TMDBApiService {
     @GET("movie/top_rated")
     suspend fun getTopRatedMovies(
         @Query("page") page: Int = 1
-    ): Response<TopRatedMovies>
+    ):TopRatedMovies
 
     @GET("trending/movie/day")
     suspend fun getTrendingMovies(

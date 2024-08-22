@@ -5,6 +5,7 @@ firebaseAuth = "23.0.0"
 firebaseFirestoreKtx = "25.0.0"
 glide = "4.16.0"
 hiltAndroid = "2.48"
+hiltNavigationCompose = "1.2.0"
 kotlin = "2.0.10"
 hilt = "2.52"
 agp = "8.5.2"
@@ -20,12 +21,16 @@ okhttpDnsoverhttps = "4.9.0"
 retrofit = "2.9.0"
 roomCompiler = "2.6.1"
 roomRuntime = "2.6.1"
+runtime = "1.6.8"
 shimmer = "0.5.0"
 testng = "6.9.6"
+compose = "1.5.1"
 
 [libraries]
+androidx-compose-ui-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.13.1" }
 androidx-espresso-core-v351 = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-junit-v115 = { module = "androidx.test.ext:junit", version.ref = "androidxJunit" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version = "2.8.4" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.9.1" }
@@ -33,6 +38,7 @@ androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", versi
 androidx-room-compiler-v252 = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomCompiler" }
+androidx-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "runtime" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
