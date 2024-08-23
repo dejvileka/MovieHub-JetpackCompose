@@ -78,6 +78,8 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     testImplementation(libs.kotlinx.coroutines.test)
     implementation(libs.androidx.runtime)
+    implementation(libs.androidx.compose.ui.ui)
+
 
 }
 

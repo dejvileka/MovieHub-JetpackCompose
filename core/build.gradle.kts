@@ -55,6 +55,5 @@ dependencies {
     androidTestImplementation(libs.mockito.android)
     testImplementation(libs.kotlinx.coroutines.test)
     implementation(libs.androidx.compose.ui.ui)
-
 }
 

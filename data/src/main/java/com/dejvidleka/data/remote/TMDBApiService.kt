@@ -34,7 +34,6 @@ interface TMDBApiService {
 
     @GET("trending/movie/day")
     suspend fun getTrendingMovies(
-        @Query("api_key") apiKey: String
     ): Response<MovieByGenre>
 
     @GET("movie/{movie_id}/credits")
@@ -46,52 +45,43 @@ interface TMDBApiService {
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(
         @Path("movie_id") movieId: Int,
-        @Query("api_key") apiKey: String
     ): Response<MovieDetails>
 
     @GET("tv/{tv_id}")
     suspend fun getTvDetails(
         @Path("tv_id") tvId: Int,
-        @Query("api_key") apiKey: String
     ): Response<TvDetails>
 
     @GET("movie/{movie_id}/videos")
     suspend fun getMovieTrailer(
         @Path("movie_id") movieId: Int,
-        @Query("api_key") apiKey: String
     ): Response<Trailer>
 
     @GET("genre/movie/list")
     suspend fun getMovieGenres(
-        @Query("api_key") apiKey: String
     ): Response<GenreResponse>
 
     @GET("movie/{movie_id}/similar")
     suspend fun getSimilarMovies(
         @Path("movie_id") movieId: Int,
-        @Query("api_key") apiKey: String
     ): Response<SimilarMovies>
 
     @GET("search/movie")
     suspend fun searchMovies(
-        @Query("api_key") apiKey: String,
         @Query("query") query: String
     ): Response<SearchResultMovies>
 
     @GET("movie/{movie_id}/watch/providers")
     suspend fun getMovieProviders(
         @Path("movie_id") movieId: Int,
-        @Query("api_key") apiKey: String
     ): Response<ProvidersResponse>
 
 
     @GET("watch/providers/regions")
     suspend fun getProviderRegions(
-        @Query("api_key") apiKey: String
     ): Response<Countries>
 
     @GET("watch/providers/movie")
     suspend fun getMovieProvidersNames(
-        @Query("api_key") apiKey: String
     ): Response<ProvidersName>
 }
