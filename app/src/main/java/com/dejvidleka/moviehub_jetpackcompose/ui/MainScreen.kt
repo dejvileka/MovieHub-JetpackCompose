@@ -1,5 +1,7 @@
 package com.dejvidleka.moviehub_jetpackcompose.ui
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
@@ -58,11 +60,11 @@ fun Navigation(navController: NavHostController) {
             SearchScreen(
             )
         }
-        composable<Destination.Favorites> {
+        composable<Destination.News> {
             FavoritesScreen(
             )
         }
-        composable<Destination.Settings> {
+        composable<Destination.Profile> {
             SettingsScreen(
             )
         }

@@ -8,8 +8,8 @@ sealed class Destination {
     @Serializable
     data object Search : Destination()
     @Serializable
-    data object Favorites : Destination()
+    data object News : Destination()
     @Serializable
-    data object Settings : Destination()
+    data object Profile : Destination()
 
 }

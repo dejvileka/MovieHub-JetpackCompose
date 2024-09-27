@@ -1,22 +1,27 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.compose)
-    alias(libs.plugins.jetbrains.kotlin.serialization)
-    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.compose.compiler)
+    kotlin("plugin.serialization") version "2.0.20"
 }
 
 android {
     namespace = "com.dejvidLeka.app"
-    compileSdk = 35
+    compileSdk = libs.versions.compileSdk.get().toInt()
+    compileSdk = 34
 
     defaultConfig {
-        minSdk = 25
-        targetSdk = 35
+        val apiKey: String = project.properties["API_KEY"] as? String ?: ""
+        buildConfigField("String", "API_KEY", apiKey)
+        testInstrumentationRunner = "com.dejvidleka.moviehub_jetpackcompose.CustomTestRunner"
+
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
+
     }
 
     buildTypes {
@@ -43,43 +48,70 @@ android {
 }
 
 dependencies {
-    implementation(project(":data"))
-    implementation(project(":core"))
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit.v115)
-    androidTestImplementation(libs.androidx.espresso.core.v351)
+    implementation(libs.androidx.benchmark.common)
+    ksp(libs.androidx.room.compiler)
+    ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.material)
+    implementation(libs.gson)
+    implementation(libs.okhttp3.logging.interceptor)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.retrofit2)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.core)
     implementation(libs.hilt.android)
-    testImplementation(libs.testng)
-    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.androidx.profileinstaller)
     implementation(platform(libs.coil.bom))
-    implementation(libs.coil.compose)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    debugImplementation(libs.androidx.ui.tooling)
-    implementation(libs.firebase.firestore.ktx)
-    implementation(libs.firebase.auth)
-    ksp(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-    implementation(libs.okhttp.dnsoverhttps)
-    implementation(libs.glide)
-    implementation(libs.shimmer)
-    testImplementation(libs.mockito.core)
-    implementation(libs.androidx.hilt.navigation.compose)
-    testImplementation(libs.kotlinx.coroutines.test)
-    implementation(libs.androidx.runtime)
-    implementation(libs.androidx.compose.ui.ui)
+    implementation (libs.okhttp.dnsoverhttps)
 
+
+
+    // Compose
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.ui.viewbinding)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.runtime.livedata)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.glide)
+    implementation(libs.accompanist.systemuicontroller)
+    debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.coil.compose)
+
+
+
+    //Test dependencies
+    debugImplementation(libs.androidx.monitor)
+    kspAndroidTest(libs.hilt.android.compiler)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.arch.core.testing)
+    androidTestImplementation(libs.androidx.espresso.contrib)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.espresso.intents)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.uiautomator)
+    androidTestImplementation(libs.androidx.work.testing)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation(libs.guava)
+    androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.accessibility.test.framework)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.junit)
+    implementation(libs.kotlinx.serialization.json)
 
 }
 
