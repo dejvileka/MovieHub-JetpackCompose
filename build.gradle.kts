@@ -1,11 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.jetbrains.kotlin.android) apply false
-    alias(libs.plugins.jetbrains.kotlin.compose) apply false
-    alias(libs.plugins.jetbrains.kotlin.serialization) apply false
+    alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.hilt) apply false
+    alias(libs.plugins.spotless)
     alias(libs.plugins.ksp) apply false
-    alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.kotlin.parcelize) apply false
+    alias(libs.plugins.android.test) apply false
+    alias(libs.plugins.gradle.versions)
+    alias(libs.plugins.version.catalog.update)
+    alias(libs.plugins.compose.compiler)
+    kotlin("plugin.serialization") version "2.0.20"
+
 }

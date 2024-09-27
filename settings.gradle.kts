@@ -21,5 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MovieHub-JetpackCompose"
 include(":app")
-include(":core")
-include(":data")
+
