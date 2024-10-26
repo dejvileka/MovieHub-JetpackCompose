@@ -1,7 +1,5 @@
 package com.dejvidleka.moviehub_jetpackcompose.ui
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
@@ -28,7 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import com.dejvidleka.moviehub_jetpackcompose.ui.navigation.BottomNavItems
 import com.dejvidleka.moviehub_jetpackcompose.ui.navigation.Destination
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.FavoritesScreen
-import com.dejvidleka.moviehub_jetpackcompose.ui.screens.HomeScreen
+import com.dejvidleka.moviehub_jetpackcompose.ui.screens.home.HomeScreen
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.SearchScreen
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.SettingsScreen
 
