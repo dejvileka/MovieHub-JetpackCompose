@@ -112,9 +112,11 @@ dependencies {
     androidTestImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.junit)
     implementation(libs.kotlinx.serialization.json)
-    implementation( "androidx.compose.foundation:foundation:1.5.4")
-    implementation( "com.google.accompanist:accompanist-pager:0.32.0")
-    implementation( "com.google.accompanist:accompanist-pager-indicators:0.32.0")
+    implementation( "androidx.compose.foundation:foundation:1.7.4")
+    implementation( libs.accompanist.pager)
+    implementation( libs.accompanist.pager.indicators)
+    implementation (libs.timber)
+
 }
 
 
