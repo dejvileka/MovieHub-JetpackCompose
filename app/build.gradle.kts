@@ -116,7 +116,7 @@ dependencies {
     implementation( libs.accompanist.pager)
     implementation( libs.accompanist.pager.indicators)
     implementation (libs.timber)
-
+    implementation ("com.google.accompanist:accompanist-swiperefresh:0.27.0")
 }
 
 

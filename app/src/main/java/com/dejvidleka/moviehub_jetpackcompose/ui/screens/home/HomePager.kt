@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
-import com.dejvidleka.moviehub_jetpackcompose.data.remote.models.movie.PopularMovies
+import com.dejvidleka.moviehub_jetpackcompose.data.remote.models.movie.MovieResponse
 import kotlin.math.absoluteValue
 
 
@@ -19,7 +19,7 @@ import kotlin.math.absoluteValue
 fun CarouselSection(
     pagerState: PagerState,
     actualItemCount: Int,
-    movies: PopularMovies
+    movies: MovieResponse
 ) {
     Box(
         modifier = Modifier
