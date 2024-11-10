@@ -13,7 +13,7 @@ enum class BottomNavItems(
     val route: Destination
 ) {
     HOME(Icons.Default.Home, "Home", Destination.Home),
-    SEARCH(Icons.Default.Search, "Search", Destination.Search),
+    SEARCH(Icons.Default.Search, "Browse", Destination.Browse),
     FAVORITES(Icons.Default.Menu, "Forum", Destination.News),
     SETTINGS(Icons.Default.Person, "Profile", Destination.Profile),
 }

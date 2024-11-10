@@ -35,6 +35,10 @@ class MovieRepository @Inject constructor(
                     MovieType.NOW_PLAYING -> {
                         apiService.getNowPlayingMovies()
                     }
+
+                    MovieType.TRENDING -> {
+                        apiService.getTrendingMovies()
+                    }
                 }
             },
             shouldFetch = { localData ->
@@ -57,6 +61,10 @@ class MovieRepository @Inject constructor(
                     MovieType.NOW_PLAYING -> {
                         apiService.getNowPlayingMovies()
                     }
+
+                    MovieType.TRENDING -> {
+                        apiService.getTrendingMovies()
+                    }
                 }
             },
             getLocally = {
@@ -75,6 +83,9 @@ class MovieRepository @Inject constructor(
 
                     MovieType.NOW_PLAYING -> {
                         apiService.getNowPlayingMovies()
+                    }
+                    MovieType.TRENDING -> {
+                        apiService.getTrendingMovies()
                     }
                 }
             },
