@@ -59,7 +59,8 @@ fun CarouselSection(
         ) { page ->
             val actualIndex = page.mod(actualItemCount)
             Box(
-                modifier = Modifier.padding(top = 10.dp)
+                modifier = Modifier
+                    .padding(top = 10.dp)
                     .fillMaxWidth()
                     .graphicsLayer {
                         val pageOffset = (
@@ -85,7 +86,9 @@ fun CarouselSection(
             ) {
                 HeroItem(
                     movies.results[actualIndex],
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize(),
+                    onClick = {},
+                    showSave = false
                 )
             }
         }

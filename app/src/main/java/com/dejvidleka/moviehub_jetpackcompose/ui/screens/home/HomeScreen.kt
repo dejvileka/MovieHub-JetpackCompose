@@ -57,6 +57,7 @@ fun HomeScreen(
     val pagerState = rememberPagerState(initialPage = startIndex, pageCount = { virtualItemCount })
     val swiperRefreshState = rememberSwipeRefreshState(isRefreshing)
 
+
     Scaffold(topBar = {})
     {
         SwipeRefresh(
@@ -81,7 +82,8 @@ fun HomeScreen(
                     }
                     item {
                         MovieSection(
-                            movieState = trendingMovies, onRetry = viewModel::retry
+                            movieState = trendingMovies,
+                            onRetry = viewModel::retry
                         ) { movies ->
                             CarouselSection(
                                 pagerState = pagerState,
@@ -91,13 +93,21 @@ fun HomeScreen(
                         }
                     }
                     item {
-                        CategorySection(title = "Popular Movies", movies = popularMovies)
+                        CategorySection(
+                            title = "Popular Movies", movies = popularMovies, viewModel = viewModel
+                        )
                     }
                     item {
-                        CategorySection(title = "Top Rated Movies", movies = topMovies)
+                        CategorySection(
+                            title = "Top Rated Movies", movies = topMovies, viewModel = viewModel
+                        )
                     }
                     item {
-                        CategorySection(title = "Upcoming Movies", movies = upcomingMovies)
+                        CategorySection(
+                            title = "Upcoming Movies",
+                            movies = upcomingMovies,
+                            viewModel = viewModel
+                        )
                     }
                 }
             }
@@ -108,7 +118,8 @@ fun HomeScreen(
 @Composable
 fun CategorySection(
     title: String,
-    movies: Result<MovieResponse>
+    movies: Result<MovieResponse>,
+    viewModel: HomeViewModel
 ) {
     Surface(
         color = MaterialTheme.colorScheme.background,
@@ -130,6 +141,7 @@ fun CategorySection(
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(movies.getOrNull()?.results ?: emptyList()) { movie ->
+                    val isFavorite by viewModel.isMovieFavorite(movie.id).collectAsState()
                     Card(
                         modifier = Modifier.width(135.dp),
                         shape = RoundedCornerShape(8.dp),
@@ -146,7 +158,10 @@ fun CategorySection(
                                 modifier = Modifier
                                     .height(200.dp)
                                     .fillMaxWidth()
-                                    .weight(1F)
+                                    .weight(1F),
+                                isFavorite = isFavorite, onClick = {
+                                    viewModel.toggleFavorite(movie)
+                                }
                             )
                             Text(
                                 text = movie.title,

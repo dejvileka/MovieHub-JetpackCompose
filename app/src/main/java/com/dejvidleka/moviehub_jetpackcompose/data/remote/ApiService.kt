@@ -14,7 +14,6 @@ interface ApiService {
     suspend fun getPopularMovies(): MovieResponse
 
     //Upcoming
-    @RequiresApi(Build.VERSION_CODES.O)
     @GET("movie/upcoming")
     suspend fun getUpcomingMovies(
         @Query("page") page: Int = 2
