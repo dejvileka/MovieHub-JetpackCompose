@@ -10,7 +10,7 @@ plugins {
 android {
     namespace = "com.dejvidLeka.app"
     compileSdk = libs.versions.compileSdk.get().toInt()
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         val apiKey: String = project.properties["API_KEY"] as? String ?: ""
@@ -48,55 +48,93 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.benchmark.common)
-    ksp(libs.androidx.room.compiler)
-    ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.paging.compose)
-    implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.work.runtime.ktx)
-    implementation(libs.material)
-    implementation(libs.gson)
-    implementation(libs.okhttp3.logging.interceptor)
-    implementation(libs.retrofit2.converter.gson)
-    implementation(libs.retrofit2)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.hilt.android)
-    implementation(libs.hilt.navigation.compose)
-    implementation(libs.androidx.profileinstaller)
-    implementation(platform(libs.coil.bom))
-    implementation (libs.okhttp.dnsoverhttps)
+
+    implementation(libs.androidx.foundation)
 
 
+    // UI
+    implementation(libs.material)
+    implementation(libs.androidx.material)
+    implementation(libs.glide)
 
-    // Compose
+    // Jetpack Compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.constraintlayout.compose)
-    implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.ui.viewbinding)
     implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.ui.viewbinding)
+    implementation(libs.androidx.constraintlayout.compose)
+
+    debugImplementation(libs.androidx.compose.ui.tooling)
+
+    // Accompanist
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.pager)
+
+    implementation(libs.accompanist.pager.indicators)
+    implementation(libs.accompanist.swiperefresh)
+
+
+    // Image Loading
+    implementation(platform(libs.coil.bom))
+    implementation(libs.coil.compose)
+
+    // Lifecycle and ViewModel
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.compose.runtime.livedata)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
-    implementation(libs.glide)
-    implementation(libs.accompanist.systemuicontroller)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    implementation(libs.coil.compose)
 
-    implementation("androidx.compose.material:material:0.1.1")
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
 
-    //Test dependencies
+
+    // Paging
+    implementation(libs.androidx.paging.compose)
+
+    // Room
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    // WorkManager
+    implementation(libs.androidx.work.runtime.ktx)
+
+    // Networking
+    implementation(libs.gson)
+    implementation(libs.okhttp3.logging.interceptor)
+    implementation(libs.okhttp.dnsoverhttps)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.retrofit2)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.android.compiler)
+
+    // Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // Profiling
+    implementation(libs.androidx.profileinstaller)
+
+    // Benchmarking
+    implementation(libs.androidx.benchmark.common)
+
+    // Logging
+    implementation (libs.timber)
+
+    // Fonts
+    implementation(libs.androidx.ui.text.google.fonts)
+
+    // Test Dependencies
     debugImplementation(libs.androidx.monitor)
-    kspAndroidTest(libs.hilt.android.compiler)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.arch.core.testing)
     androidTestImplementation(libs.androidx.espresso.contrib)
@@ -110,13 +148,10 @@ dependencies {
     androidTestImplementation(libs.hilt.android.testing)
     androidTestImplementation(libs.accessibility.test.framework)
     androidTestImplementation(libs.kotlinx.coroutines.test)
+    kspAndroidTest(libs.hilt.android.compiler)
     testImplementation(libs.junit)
-    implementation(libs.kotlinx.serialization.json)
-    implementation( "androidx.compose.foundation:foundation:1.7.4")
-    implementation( libs.accompanist.pager)
-    implementation( libs.accompanist.pager.indicators)
-    implementation (libs.timber)
-    implementation ("com.google.accompanist:accompanist-swiperefresh:0.27.0")
 }
+
+
 
 

@@ -1,8 +1,10 @@
 package com.dejvidleka.moviehub_jetpackcompose.ui.screens.home
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,14 +12,16 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -44,14 +48,38 @@ fun HomeScreen(
     val swiperRefreshState = rememberSwipeRefreshState(isRefreshing)
 
     Scaffold(topBar = {
-        CenterAlignedTopAppBar(title = { Text("Kino Hub") })
+
     }) { paddingValues ->
         SwipeRefresh(
             modifier = Modifier.padding(paddingValues),
             state = swiperRefreshState,
             onRefresh = { viewModel.refresh() },
+            swipeEnabled = true,
+            refreshTriggerDistance = 100.dp,
+            indicatorPadding = PaddingValues(top = 10.dp),
+            clipIndicatorToPadding = true,
             content = {
                 LazyColumn {
+                    item {
+                        TopAppBar(
+                            colors = TopAppBarDefaults.topAppBarColors(
+                                containerColor = MaterialTheme.colorScheme.background.copy(
+                                    alpha = 0.1F
+                                )
+                            ),
+                            title = {
+                                Box(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = "Kino Hub",
+                                        style = MaterialTheme.typography.titleLarge,
+                                    )
+                                }
+                            },
+                        )
+                    }
                     item {
                         MovieSection(
                             movieState = popularMovies, onRetry = viewModel::retry

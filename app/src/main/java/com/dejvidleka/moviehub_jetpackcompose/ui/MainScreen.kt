@@ -15,7 +15,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -26,9 +25,9 @@ import androidx.navigation.compose.rememberNavController
 import com.dejvidleka.moviehub_jetpackcompose.ui.navigation.BottomNavItems
 import com.dejvidleka.moviehub_jetpackcompose.ui.navigation.Destination
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.FavoritesScreen
-import com.dejvidleka.moviehub_jetpackcompose.ui.screens.home.HomeScreen
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.SearchScreen
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.SettingsScreen
+import com.dejvidleka.moviehub_jetpackcompose.ui.screens.home.HomeScreen
 
 
 @Composable
@@ -78,7 +77,10 @@ fun BottomNavigationBar(navController: NavController) {
         if (item.route::class.qualifiedName == currentDestination?.route) {
             selectedIndex.intValue = index
         }
-        NavigationBar(containerColor = Color.Transparent, tonalElevation = 0.dp) {
+        NavigationBar(
+            containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
+            tonalElevation = 0.dp
+        ) {
             BottomNavItems.entries.forEachIndexed { index, item ->
                 val isSelected = index == selectedIndex.intValue
                 NavigationBarItem(

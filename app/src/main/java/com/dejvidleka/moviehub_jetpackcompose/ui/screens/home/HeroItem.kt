@@ -1,14 +1,13 @@
 package com.dejvidleka.moviehub_jetpackcompose.ui.screens.home
 
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -28,24 +27,27 @@ fun HeroItem(
 
     Box(
         modifier = modifier
-            .aspectRatio(5f / 7f)
+            .aspectRatio(6f / 8f)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .fillMaxWidth(),
-            verticalArrangement = Arrangement.SpaceBetween,
-            horizontalAlignment = Alignment.CenterHorizontally
+        Surface (
+            modifier = modifier.aspectRatio(6f / 8f),
+            shape = RoundedCornerShape(8.dp),
+            tonalElevation = 8.dp,
+            shadowElevation = 8.dp,
+            border = BorderStroke(
+                width = 1.dp,
+                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 12f)
+            )
         ) {
             GlideImage(
                 model = baseImageUrl + movie.poster_path,
                 contentDescription = "Movie poster",
                 modifier = Modifier
-                    .weight(1f)
                     .fillMaxWidth()
-                    .clip(RoundedCornerShape(16.dp)),
-                contentScale = ContentScale.Crop
+                    .clip(RoundedCornerShape(3.dp)),
+                contentScale = ContentScale.FillBounds
             )
-        }
+
+    }
     }
 }
