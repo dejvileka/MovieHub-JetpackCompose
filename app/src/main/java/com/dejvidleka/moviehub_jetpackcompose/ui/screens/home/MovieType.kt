@@ -5,5 +5,6 @@ enum class MovieType {
     TOP_RATED,
     UPCOMING,
     NOW_PLAYING,
-    TRENDING
+    TRENDING,
+    LATEST
 }

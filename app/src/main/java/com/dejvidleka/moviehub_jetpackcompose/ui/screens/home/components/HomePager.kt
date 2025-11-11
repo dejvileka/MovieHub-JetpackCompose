@@ -1,4 +1,4 @@
-package com.dejvidleka.moviehub_jetpackcompose.ui.screens.home
+package com.dejvidleka.moviehub_jetpackcompose.ui.screens.home.components
 
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -29,6 +29,7 @@ fun CarouselSection(
     actualItemCount: Int,
     movies: MovieResponse
 ) {
+    if (actualItemCount == 0) return
     Box(
         modifier = Modifier
             .fillMaxWidth()

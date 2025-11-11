@@ -5,12 +5,12 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.compose.compiler)
     kotlin("plugin.serialization") version "2.0.20"
+
 }
 
 android {
     namespace = "com.dejvidLeka.app"
-    compileSdk = libs.versions.compileSdk.get().toInt()
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         val apiKey: String = project.properties["API_KEY"] as? String ?: ""
@@ -18,7 +18,7 @@ android {
         testInstrumentationRunner = "com.dejvidleka.moviehub_jetpackcompose.CustomTestRunner"
 
         minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
 
@@ -150,6 +150,7 @@ dependencies {
     androidTestImplementation(libs.kotlinx.coroutines.test)
     kspAndroidTest(libs.hilt.android.compiler)
     testImplementation(libs.junit)
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
 }
 
 

@@ -1,4 +1,4 @@
-package com.dejvidleka.moviehub_jetpackcompose.ui.screens.home
+package com.dejvidleka.moviehub_jetpackcompose.ui.screens.home.components
 
 import androidx.compose.runtime.Composable
 import com.dejvidleka.moviehub_jetpackcompose.data.remote.models.movie.MovieResponse

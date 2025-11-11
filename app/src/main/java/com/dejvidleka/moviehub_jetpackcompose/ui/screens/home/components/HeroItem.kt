@@ -1,4 +1,4 @@
-package com.dejvidleka.moviehub_jetpackcompose.ui.screens.home
+package com.dejvidleka.moviehub_jetpackcompose.ui.screens.home.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.dejvidleka.moviehub_jetpackcompose.data.remote.models.movie.MovieDetails
@@ -36,7 +37,7 @@ fun HeroItem(
     isFavorite: Boolean = false,
     onClick: () -> Unit
 ) {
-    val baseImageUrl = "https://image.tmdb.org/t/p/original"
+    val baseImageUrl = "https://image.tmdb.org/t/p/w780"
 
     Box(
         modifier = modifier
@@ -52,7 +53,7 @@ fun HeroItem(
                 color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 12f)
             )
         ) {
-            GlideImage(
+            AsyncImage(
                 model = baseImageUrl + movie.poster_path,
                 contentDescription = "Movie poster",
                 modifier = Modifier

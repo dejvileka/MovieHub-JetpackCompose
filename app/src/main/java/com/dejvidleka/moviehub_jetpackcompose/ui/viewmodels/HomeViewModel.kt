@@ -78,7 +78,7 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun loadAllMovies() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             MovieType.entries.forEach { type ->
                 loadMovies(type)
             }
@@ -86,7 +86,7 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun loadMovies(type: MovieType) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             repository.getMovies(type).onStart { movieStates[type]?.value = Result.Loading }
                 .catch { e ->
                     movieStates[type]?.value = Result.Error(

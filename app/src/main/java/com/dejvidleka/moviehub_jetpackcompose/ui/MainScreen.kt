@@ -25,7 +25,7 @@ import androidx.navigation.compose.rememberNavController
 import com.dejvidleka.moviehub_jetpackcompose.ui.navigation.BottomNavItems
 import com.dejvidleka.moviehub_jetpackcompose.ui.navigation.Destination
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.FavoritesScreen
-import com.dejvidleka.moviehub_jetpackcompose.ui.screens.BrowseScreen
+import com.dejvidleka.moviehub_jetpackcompose.ui.screens.DiscoverScreen
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.SettingsScreen
 import com.dejvidleka.moviehub_jetpackcompose.ui.screens.home.HomeScreen
 
@@ -54,7 +54,7 @@ fun Navigation(navController: NavHostController) {
             )
         }
         composable<Destination.Browse> {
-            BrowseScreen(
+            DiscoverScreen(
             )
         }
         composable<Destination.News> {

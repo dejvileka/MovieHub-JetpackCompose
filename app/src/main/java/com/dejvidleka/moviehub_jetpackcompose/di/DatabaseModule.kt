@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.dejvidleka.moviehub_jetpackcompose.data.local.AppDatabase
 import com.dejvidleka.moviehub_jetpackcompose.data.local.dao.FavoriteMovieDao
+import com.dejvidleka.moviehub_jetpackcompose.data.local.dao.MovieDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,5 +28,10 @@ object DatabaseModule {
     @Singleton
     fun provideFavoriteMovieDao(appDatabase: AppDatabase): FavoriteMovieDao =
         appDatabase.favoriteMovieDao()
+
+    @Provides
+    @Singleton
+    fun provideMovieDao(appDatabase: AppDatabase): MovieDao =
+        appDatabase.movieDao()
 
 }

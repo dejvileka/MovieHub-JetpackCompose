@@ -3,7 +3,7 @@ package com.dejvidleka.moviehub_jetpackcompose.data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "favorite_movies")
+@Entity(tableName = "MOVIES")
 data class MovieDetailsEntity(
     @PrimaryKey val id: Int,
     val adult: Boolean,
@@ -19,5 +19,7 @@ data class MovieDetailsEntity(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int,
+    val type: String,
+    val timeStamp: Long
 )
 

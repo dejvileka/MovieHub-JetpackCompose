@@ -27,6 +27,10 @@ interface ApiService {
     @GET("movie/now_playing")
     suspend fun getNowPlayingMovies(): MovieResponse
 
+    //NowPlaying
+    @GET("movie/latest")
+    suspend fun getLatestMovies(): MovieResponse
+
     //Tending
     @GET("trending/{media_type}/{time_window}")
     suspend fun getTrendingMovies(

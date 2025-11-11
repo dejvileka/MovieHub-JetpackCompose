@@ -4,8 +4,8 @@ data class MovieResponse(
     val dates: Dates? = null,
     val page: Int,
     val results: List<MovieDetails>,
-    val total_pages: Int,
-    val total_results: Int
+    val totalPages: Int,
+    val totalResults: Int
 )
 
 

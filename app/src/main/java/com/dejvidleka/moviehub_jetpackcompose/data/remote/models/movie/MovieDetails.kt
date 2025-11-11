@@ -3,10 +3,10 @@ package com.dejvidleka.moviehub_jetpackcompose.data.remote.models.movie
 import com.dejvidleka.moviehub_jetpackcompose.data.local.entity.MovieDetailsEntity
 
 data class MovieDetails(
+    val id: Int,
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,
-    val id: Int,
     val original_language: String,
     val original_title: String,
     val overview: String,
@@ -16,7 +16,9 @@ data class MovieDetails(
     val title: String,
     val video: Boolean,
     val vote_average: Double,
-    val vote_count: Int
+    val vote_count: Int,
+    val type: String,
+    val timeStamp: Long,
 )
 
 fun MovieDetails.toMovieDetails(): MovieDetailsEntity {
@@ -35,5 +37,7 @@ fun MovieDetails.toMovieDetails(): MovieDetailsEntity {
         vote_average = this.vote_average,
         vote_count = this.vote_count,
         genre_ids = this.genre_ids,
+        type = this.type,
+        timeStamp = this.timeStamp,
     )
 }
